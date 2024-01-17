@@ -1,4 +1,5 @@
 import Profile, {ProfileNode} from '../../models/Profile';
+import formatNumber from '../../utils/formatNumber';
 import FoamTreeMapData, {FoamTreeMapGroup} from './models/FoamTreeMapData';
 
 export default function buildFoamTreeMapData(
@@ -11,7 +12,7 @@ export default function buildFoamTreeMapData(
 
 function mapRecursively(node: ProfileNode): FoamTreeMapGroup {
   return {
-    label: `${node.name} [${node.weight}]`,
+    label: `${node.name} [${formatNumber(node.weight)}]`,
     weight: node.weight,
     groups: node.children?.map(mapRecursively),
   };
