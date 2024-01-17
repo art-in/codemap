@@ -1,0 +1,23 @@
+{
+    "name": "codemap",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // common
+                "eamodio.gitlens",
+
+                // for c++
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "notskm.clang-tidy",
+                
+                // for typescript
+                "dbaeumer.vscode-eslint",
+                "denoland.vscode-deno"
+            ]
+        }
+    }
+}

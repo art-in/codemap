@@ -1,0 +1,49 @@
+{
+  "env": {
+    "browser": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        // soft limit for line length, that can be extended in certain cases
+        // (eg. in long assignments, imports). not respected in comments
+        "printWidth": 80,
+        // don't use spacing around brackets to not extend line too much
+        "bracketSpacing": false,
+        // single quotes make bit less visual noise than double quotes.
+        // note: jsx will always use double quotes.
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        // hard limit for line length. allow long enough for svg paths
+        "code": 10000,
+        // prettier does not control line width in comments, so enforce it with eslint
+        "comments": 80,
+        // urls in comments cannot be wrapped, so we need to ignore them
+        "ignoreUrls": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+}
+
+.item {
+  white-space: nowrap;
+}
+
+.item + .item {
+  margin-left: 10px;
+}
