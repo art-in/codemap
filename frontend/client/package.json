@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@carrotsearch/foamtree": "^3.5.0",
+    "@carrotsearch/foamtree": "^3.5.1",
     "@types/jest": "^27.5.2",
     "@types/jest-image-snapshot": "^4.3.1",
     "@types/node": "^16.11.38",

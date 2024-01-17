@@ -29,8 +29,9 @@ function FoamTreeMap(props: Props) {
       pullbackDuration: 0,
       fadeDuration: 0,
       groupExposureZoomMargin: 0.2,
-      zoomMouseWheelDuration: 300,
-      openCloseDuration: 200,
+      zoomMouseWheelDuration: 50,
+      openCloseDuration: 50,
+      groupFillType: 'plain',
       dataObject: buildFoamTreeMapData(props.profile),
     });
   }, []);
