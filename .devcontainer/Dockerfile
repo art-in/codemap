@@ -22,7 +22,7 @@ ENV CC=/bin/clang-17
 ENV CXX=/bin/clang++-17
 
 # allow to use "clang" command without version
-RUN ln -s /bin/clang++-17 /bin/clang
+RUN ln -s /bin/clang++-17 /bin/clang++
 
 # install nodejs (for frontend/client)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
