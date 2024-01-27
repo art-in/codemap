@@ -20,5 +20,5 @@ folder, where each node represents:
 Usage:
 
 ```sh
-loc --target=my/dir/ --output=my.profile
+loc --target=my/dir/ --out=my.profile
 ```
