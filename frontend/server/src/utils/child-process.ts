@@ -1,23 +1,13 @@
-export async function run(
-  binaryPath: string,
-  args?: string[],
-) {
-  const commandString = `${binaryPath} ${args?.join(" ")}`;
-  console.log("running command: " + commandString);
+import util from 'node:util';
+import childProcess from 'node:child_process';
 
-  const command = new Deno.Command(binaryPath, { args });
-  const output = await command.output();
+const exec = util.promisify(childProcess.exec);
 
-  const textDecoder = new TextDecoder();
+export async function run(binaryPath: string, args?: string[]) {
+  const commandString = `${binaryPath} ${args?.join(' ')}`;
+  console.log('running command: ' + commandString);
 
-  if (!output.success) {
-    const stderr = textDecoder.decode(output.stderr);
-    const errorMessage = `command failed: ${stderr}`;
-    console.error(errorMessage);
-    throw Error(errorMessage);
-  }
-
-  const stdout = textDecoder.decode(output.stdout);
+  const {stdout} = await exec(commandString);
 
   return stdout;
 }

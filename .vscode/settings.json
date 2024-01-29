@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+
+  // typescript
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.enable": true,
+  "eslint.validate": [
+    "typescript",
+    "typescriptreact"
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+
+  // c++
+  "cmake.configureOnOpen": false,
+  "C_Cpp.default.compilerPath": "/bin/clang++-17",
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.clang_format_style": "Google"
+}

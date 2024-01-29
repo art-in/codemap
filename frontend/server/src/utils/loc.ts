@@ -1,5 +1,5 @@
-import { run } from "./child-process.ts";
+import {run} from './child-process';
 
 export async function getProfile(dir: string): Promise<string> {
-  return await run("../../loc/loc", [`--target=${dir}`]);
+  return await run('../../loc/loc', [`--target=${dir}`]);
 }
