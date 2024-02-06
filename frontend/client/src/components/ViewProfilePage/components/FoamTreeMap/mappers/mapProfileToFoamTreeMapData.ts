@@ -1,4 +1,4 @@
-import Profile, {ProfileNode} from '../../../models/Profile';
+import Profile, {ProfileNode} from '../../../../../models/Profile';
 import FoamTreeMapGroup from '../models/FoamTreeMapGroup';
 import IFoamTreeMapData from '../models/IFoamTreeMapData';
 

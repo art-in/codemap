@@ -1,6 +1,6 @@
 import {forwardRef, memo, useCallback, useEffect, useRef} from 'react';
-import Size from '../../models/Size';
-import resizeCanvas from '../../utils/resizeCanvas';
+import Size from '../../../../../../models/Size';
+import resizeCanvas from '../../../../../../utils/resizeCanvas';
 
 interface Props {
   className?: string;

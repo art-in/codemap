@@ -1,7 +1,7 @@
 import Profile from './Profile';
-import ViewMode from './ViewMode';
+import TreeMapViewer from './TreeMapViewer';
 
 export default interface State {
   profile?: Profile;
-  viewMode: ViewMode;
+  viewer: TreeMapViewer;
 }

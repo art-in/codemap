@@ -1,83 +1,71 @@
 import {useCallback, useState} from 'react';
 import Profile from '../../models/Profile';
 import State from '../../models/State';
-import ViewMode from '../../models/ViewMode';
-import ProfileInput from '../ProfileInput';
-import ViewModeSelector from '../ViewModeSelector';
-import TreeMap from '../TreeMap';
-import FoamTreeMap from '../FoamTreeMap';
-import RepoUrlInput from '../RepoUrlInput';
+import TreeMapViewer from '../../models/TreeMapViewer';
 import classes from './App.module.css';
+import SelectProfilePage from '../SelectProfilePage/SelectProfilePage';
+import ViewProfilePage from '../ViewProfilePage/ViewProfilePage';
 
 function App() {
   const [state, setState] = useState<State>({
-    viewMode: ViewMode.FoamTreeMap,
+    viewer: TreeMapViewer.FoamTreeMap,
   });
 
-  const onViewModeChange = useCallback(
-    (viewMode: ViewMode) => {
+  const onViewerChange = useCallback(
+    (viewer: TreeMapViewer) => {
       setState({
         ...state,
-        viewMode,
+        viewer,
       });
     },
     [state]
   );
 
-  const onProfileSelected = useCallback(
+  const onProfileFileSelected = useCallback(
     (contents: string) => {
-      // TODO(artin): validate profile input format
+      // TODO: validate profile format
       const profile = contents ? (JSON.parse(contents) as Profile) : undefined;
-      setState({
-        ...state,
-        profile,
-      });
+      setState({...state, profile});
     },
     [state]
   );
 
   const onRepoUrlSelected = useCallback(async (repoUrl: string) => {
     const response = await fetch(`api/loc-profile?git-repo-url=${repoUrl}`);
-
     const profile = await response.json();
-
     setState({
       ...state,
       profile,
     });
   }, []);
 
-  let viewComponent: JSX.Element;
-
-  if (state.profile) {
-    switch (state.viewMode) {
-      case ViewMode.TreeMap:
-        viewComponent = <TreeMap profile={state.profile} />;
-        break;
-      case ViewMode.FoamTreeMap:
-        viewComponent = <FoamTreeMap profile={state.profile} />;
-        break;
-      default:
-        throw Error('Unknown view mode');
-    }
-  } else {
-    viewComponent = (
-      <div className={classes.noprofile}>No profile selected</div>
-    );
-  }
+  const onProfileViewPageGoBack = useCallback(() => {
+    setState({
+      ...state,
+      profile: undefined,
+    });
+  }, []);
 
   return (
-    <div className={classes.root}>
-      <div className={classes.header}>
-        <ProfileInput onProfileSelected={onProfileSelected} />
-        <RepoUrlInput onUrlSelected={onRepoUrlSelected} />
-        <ViewModeSelector
-          viewMode={state.viewMode}
-          onViewModeChange={onViewModeChange}
+    <>
+      {!state.profile && (
+        <SelectProfilePage
+          className={classes.root}
+          onProfileFileSelected={onProfileFileSelected}
+          onRepoUrlSelected={onRepoUrlSelected}
         />
-      </div>
-      <div className={classes.view}>{viewComponent}</div>
-    </div>
+      )}
+
+      {state.profile && (
+        <ViewProfilePage
+          className={classes.root}
+          profile={state.profile}
+          viewer={state.viewer}
+          onViewerChange={onViewerChange}
+          onGoBack={onProfileViewPageGoBack}
+        />
+      )}
+    </>
   );
 }
 

@@ -1,0 +1,13 @@
+.root {
+    display: flex;
+}
+
+.type,
+.root input,
+.root label {
+    cursor: pointer;
+}
+
+.type {
+    margin-left: 10px;
+}

@@ -1,26 +1,5 @@
 .root {
   height: 100%;
   display: flex;
-  flex-direction:column;
-}
-
-.header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid lightgray;
-}
-
-.view {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-}
-
-.noprofile {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }

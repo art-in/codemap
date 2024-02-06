@@ -1,5 +1,5 @@
-import Profile, {ProfileNode} from '../../models/Profile';
-import Size from '../../models/Size';
+import Profile, {ProfileNode} from '../../../../models/Profile';
+import Size from '../../../../models/Size';
 import BoundingRect from './models/BoundingRect';
 import TreeMapData, {TreeMapNode} from './models/TreeMapData';
 

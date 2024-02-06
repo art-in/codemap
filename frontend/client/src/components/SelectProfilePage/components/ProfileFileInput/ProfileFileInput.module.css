@@ -1,0 +1,12 @@
+.root {
+  white-space: nowrap;
+}
+
+.root>input {
+  display: none;
+}
+
+.root>button {
+  padding: 7px 10px;
+  font-size: 18px;
+}

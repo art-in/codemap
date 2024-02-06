@@ -1,7 +1,10 @@
 import {memo, useCallback, useRef} from 'react';
-import assertNotEmpty from '../../utils/assertNotEmpty';
+import cn from 'classnames';
+import assertNotEmpty from '../../../../utils/assertNotEmpty';
+import classes from './RepoUrlInput.module.css';
 
 interface Props {
+  className?: string;
   onUrlSelected: (url: string) => void;
 }
 
@@ -14,8 +17,8 @@ function RepoUrlInput(props: Props) {
   }, []);
 
   return (
-    <span>
-      <input type="url" ref={urlInputRef} />
+    <span className={cn(props.className, classes.root)}>
+      <input className={classes.input} ref={urlInputRef} />
       <button onClick={onPostButtonClick}>POST</button>
     </span>
   );

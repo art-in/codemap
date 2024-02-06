@@ -1,5 +1,5 @@
-import Size from '../../models/Size';
-import getCanvasFontString from '../../utils/getCanvasFontString';
+import Size from '../../../../models/Size';
+import getCanvasFontString from '../../../../utils/getCanvasFontString';
 import TreeMapData, {TreeMapNode} from './models/TreeMapData';
 
 export default function drawTreeMap(

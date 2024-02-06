@@ -1,8 +1,8 @@
 import {useCallback, useEffect, useRef, memo} from 'react';
 import classes from './FoamTreeMap.module.css';
 import buildFoamTree, {FoamTreeInstance} from './buildFoamTree';
-import Profile from '../../models/Profile';
-import assertNotEmpty from '../../utils/assertNotEmpty';
+import Profile from '../../../../models/Profile';
+import assertNotEmpty from '../../../../utils/assertNotEmpty';
 
 interface Props {
   profile: Profile;
@@ -34,6 +34,7 @@ function FoamTreeMap(props: Props) {
       const selection = foamTree.get('selection');
 
       for (const group of selection.groups) {
+        console.log(group);
         group.delete();
       }
 

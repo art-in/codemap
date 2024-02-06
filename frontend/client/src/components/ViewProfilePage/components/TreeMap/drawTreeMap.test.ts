@@ -1,6 +1,6 @@
 import {createCanvas} from 'canvas';
-import Profile from '../../models/Profile';
-import Size from '../../models/Size';
+import Profile from '../../../../models/Profile';
+import Size from '../../../../models/Size';
 import buildTreeMap from './buildTreeMap';
 import drawTreeMap from './drawTreeMap';
 
