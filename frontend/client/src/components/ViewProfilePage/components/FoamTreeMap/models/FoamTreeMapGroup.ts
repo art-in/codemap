@@ -1,6 +1,7 @@
 import assert from 'assert';
-import IFoamTreeMapGroup from './IFoamTreeMapData';
+
 import formatNumber from '../../../../../utils/formatNumber';
+import IFoamTreeMapGroup from './IFoamTreeMapData';
 
 export default class FoamTreeMapGroup implements IFoamTreeMapGroup {
   parent?: FoamTreeMapGroup;

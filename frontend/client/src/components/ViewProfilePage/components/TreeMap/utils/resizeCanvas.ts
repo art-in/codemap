@@ -1,4 +1,4 @@
-import Size from '../models/Size';
+import Size from '../../../../../models/Size';
 
 export default function resizeCanvas(
   canvas: HTMLCanvasElement,

@@ -1,4 +1,5 @@
 import {ChangeEvent, useCallback, useRef} from 'react';
+
 import classes from './ProfileFileInput.module.css';
 
 interface Props {
@@ -23,7 +24,7 @@ export default function ProfileFileInput(props: Props) {
         reader.readAsText(file, 'UTF-8');
       }
     },
-    [props.onFileSelected]
+    [props]
   );
 
   const onButtonClick = useCallback(() => {
@@ -32,9 +33,7 @@ export default function ProfileFileInput(props: Props) {
 
   return (
     <div className={classes.root}>
-      <button onClick={onButtonClick}>
-        Choose profile file from local disk
-      </button>
+      <button onClick={onButtonClick}>Choose profile from local disk</button>
       <input ref={inputRef} type="file" onChange={onChange} />
     </div>
   );

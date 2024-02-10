@@ -8,11 +8,16 @@
     "sourceType": "module"
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "simple-import-sort"
   ],
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    // disable "'React' must be in scope when using JSX" error
+    "plugin:react/jsx-runtime"
   ],
   "settings": {
     "react": {
@@ -44,6 +49,8 @@
         // urls in comments cannot be wrapped, so we need to ignore them
         "ignoreUrls": true
       }
-    ]
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

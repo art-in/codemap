@@ -1,8 +1,9 @@
 // eslint-disable-next-line
 // @ts-nocheck because FoamTree lib doesn't provide typings
 import FoamTree from '@carrotsearch/foamtree';
-import mapProfileToFoamTreeMapData from './mappers/mapProfileToFoamTreeMapData';
+
 import Profile from '../../models/Profile';
+import mapProfileToFoamTreeMapData from './mappers/mapProfileToFoamTreeMapData';
 
 // eslint-disable-next-line
 export type FoamTreeInstance = Record<string, any>;
@@ -57,7 +58,7 @@ export default function buildFoamTree(
   });
 
   foamTree.customRedrawAfterDataChanged = () => {
-    // ugly, but the only way found to redraw data after it was changed,
+    // ugly, but the only found way to redraw data after it was changed,
     // e.g. after nodes deleted
     foamTree.set('dataObject', foamTree.get('dataObject'));
   };

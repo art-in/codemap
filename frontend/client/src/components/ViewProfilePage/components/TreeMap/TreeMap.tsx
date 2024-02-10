@@ -1,11 +1,12 @@
 import {memo, useCallback, useEffect, useState} from 'react';
 import {useRef} from 'react';
-import buildTreeMap from './buildTreeMap';
-import drawTreeMap from './drawTreeMap';
+
+import Profile from '../../../../models/Profile';
 import Size from '../../../../models/Size';
 import assertNotEmpty from '../../../../utils/assertNotEmpty';
-import Profile from '../../../../models/Profile';
+import buildTreeMap from './buildTreeMap';
 import AutoResizableCanvas from './components/AutoResizableCanvas';
+import drawTreeMap from './drawTreeMap';
 
 interface Props {
   profile: Profile;

@@ -1,5 +1,6 @@
-import express from 'express';
 import fs from 'node:fs/promises';
+
+import express from 'express';
 
 import * as git from './utils/git';
 import * as loc from './utils/loc';
@@ -8,14 +9,14 @@ const app = express();
 const api = express.Router();
 
 api.get('/loc-profile', async (request, response) => {
-  const repoUrl = request.query['git-repo-url'];
+  const gitRepoUrl = request.query['git-repo-url'];
 
-  if (typeof repoUrl !== 'string') {
+  if (typeof gitRepoUrl !== 'string') {
     response.status(404).send('no git-repo-url query param in request');
     return;
   }
 
-  const repoDir = await git.clone(repoUrl);
+  const repoDir = await git.clone(gitRepoUrl);
   const locProfile = await loc.getProfile(repoDir);
   await fs.rm(repoDir, {recursive: true});
 

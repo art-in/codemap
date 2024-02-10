@@ -1,6 +1,6 @@
 import Size from '../../../../models/Size';
-import getCanvasFontString from '../../../../utils/getCanvasFontString';
 import TreeMapData, {TreeMapNode} from './models/TreeMapData';
+import getCanvasFontString from './utils/getCanvasFontString';
 
 export default function drawTreeMap(
   ctx: CanvasRenderingContext2D,

@@ -1,6 +1,7 @@
 import {forwardRef, memo, useCallback, useEffect, useRef} from 'react';
+
 import Size from '../../../../../../models/Size';
-import resizeCanvas from '../../../../../../utils/resizeCanvas';
+import resizeCanvas from '../../utils/resizeCanvas';
 
 interface Props {
   className?: string;
@@ -23,7 +24,7 @@ function AutoResizableCanvas(
         props.onResize(size);
       }
     },
-    [window.devicePixelRatio, props.onResize]
+    [props, canvasRef]
   );
 
   const onWindowResize = useCallback(() => {
@@ -32,14 +33,14 @@ function AutoResizableCanvas(
       const rect = container.getBoundingClientRect();
       onResize({width: rect.width, height: rect.height});
     }
-  }, []);
+  }, [onResize]);
 
   useEffect(() => {
     window.addEventListener('resize', onWindowResize);
     () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  }, [onWindowResize]);
 
-  useEffect(onWindowResize, []);
+  useEffect(onWindowResize, [onWindowResize]);
 
   return (
     <div

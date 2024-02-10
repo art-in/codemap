@@ -1,7 +1,8 @@
-import crypto from 'crypto';
 import fs from 'node:fs/promises';
 
-import {run} from './child-process';
+import crypto from 'crypto';
+
+import {run} from './shell-command';
 
 export async function clone(repoUrl: string): Promise<string> {
   const repoDir = `./clonned-repos/${crypto.randomUUID()}`;

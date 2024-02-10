@@ -1,6 +1,6 @@
 {
   "env": {
-    "browser": true
+    "node": true
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -8,7 +8,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "simple-import-sort"
   ],
   "extends": [
     "plugin:@typescript-eslint/recommended",
@@ -39,6 +40,8 @@
         // urls in comments cannot be wrapped, so we need to ignore them
         "ignoreUrls": true
       }
-    ]
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

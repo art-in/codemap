@@ -2,10 +2,15 @@
     display: flex;
 }
 
-.root>.input {
+.input {
     padding: 7px 10px;
     font-size: 32px;
     width: 100%;
     display: inline-block;
     border: 1px solid gray;
+}
+
+.input.invalid {
+    border-color: red;
+    outline: 1px solid red;
 }

@@ -6,6 +6,6 @@
   white-space: nowrap;
 }
 
-.item + .item {
+.item+.item {
   margin-left: 10px;
 }

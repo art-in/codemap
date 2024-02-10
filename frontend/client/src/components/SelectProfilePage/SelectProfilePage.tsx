@@ -1,15 +1,16 @@
-import {memo, useCallback, useState} from 'react';
 import cn from 'classnames';
+import {memo, useCallback, useState} from 'react';
+
+import ProfileSourceType from '../../models/ProfileSourceType';
 import ProfileFileInput from './components/ProfileFileInput/ProfileFileInput';
 import RepoUrlInput from './components/RepoUrlInput';
-import classes from './SelectProfilePage.module.css';
 import SourceTypeSelector from './components/SourceTypeSelector';
-import ProfileSourceType from '../../models/ProfileSourceType';
+import classes from './SelectProfilePage.module.css';
 
 interface Props {
   className?: string;
   onRepoUrlSelected: (url: string) => void;
-  onProfileFileSelected: (contents: string) => void;
+  onProfileFileSelected: (fileContents: string) => void;
 }
 
 function SelectProfilePage(props: Props) {

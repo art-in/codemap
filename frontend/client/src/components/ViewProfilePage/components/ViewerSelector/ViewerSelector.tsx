@@ -1,9 +1,9 @@
-import TreeMapViewer from '../../../../models/TreeMapViewer';
+import TreeMapViewerType from '../../../../models/TreeMapViewerType';
 import classes from './ViewerSelector.module.css';
 
 interface Props {
-  viewer: TreeMapViewer;
-  onChange: (viewer: TreeMapViewer) => void;
+  viewer: TreeMapViewerType;
+  onChange: (viewer: TreeMapViewerType) => void;
 }
 
 export default function ViewerSelector(props: Props) {
@@ -13,8 +13,8 @@ export default function ViewerSelector(props: Props) {
         <input
           id="FoamTreeMap"
           type="radio"
-          checked={props.viewer == TreeMapViewer.FoamTreeMap}
-          onChange={() => props.onChange(TreeMapViewer.FoamTreeMap)}
+          checked={props.viewer == TreeMapViewerType.FoamTreeMap}
+          onChange={() => props.onChange(TreeMapViewerType.FoamTreeMap)}
         />
         <label htmlFor="FoamTreeMap">FoamTreeMap</label>
       </div>
@@ -22,8 +22,8 @@ export default function ViewerSelector(props: Props) {
         <input
           id="TreeMap"
           type="radio"
-          checked={props.viewer == TreeMapViewer.TreeMap}
-          onChange={() => props.onChange(TreeMapViewer.TreeMap)}
+          checked={props.viewer == TreeMapViewerType.TreeMap}
+          onChange={() => props.onChange(TreeMapViewerType.TreeMap)}
         />
         <label htmlFor="TreeMap">TreeMap</label>
       </div>
