@@ -1,9 +1,13 @@
 import fs from 'node:fs/promises';
 
+import crypto from 'crypto';
 import express from 'express';
 
 import * as git from './utils/git';
 import * as loc from './utils/loc';
+
+const LISTEN_PORT = 4000;
+const CLONNED_REPOS_DIR = './clonned-repos';
 
 const app = express();
 const api = express.Router();
@@ -16,7 +20,9 @@ api.get('/loc-profile', async (request, response) => {
     return;
   }
 
-  const repoDir = await git.clone(gitRepoUrl);
+  const repoDir = `${CLONNED_REPOS_DIR}/${crypto.randomUUID()}`;
+
+  await git.clone(gitRepoUrl, repoDir);
   const locProfile = await loc.getProfile(repoDir);
   await fs.rm(repoDir, {recursive: true});
 
@@ -25,4 +31,9 @@ api.get('/loc-profile', async (request, response) => {
 
 app.use('/api', api);
 
-app.listen(4000);
+(async () => {
+  await fs.rm(CLONNED_REPOS_DIR, {recursive: true, force: true});
+
+  app.listen(LISTEN_PORT);
+  console.log('Listening at port ' + LISTEN_PORT);
+})();
