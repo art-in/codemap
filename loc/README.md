@@ -2,18 +2,17 @@ Lines Of Code (LOC) counting tool
 
 ---
 
-Recursively reads code files in specified folder, counts lines in them, and
+Recursively reads code files in target directory, counts lines in them, and
 generates LOC-profile.
 
-Code files are detected by whitelist of code file extensions. See
+Code files are detected by whitelist of file extensions. See
 [code_file_extensions.h](./src/code_file_extensions.h)
 
-LOC-profile is a json tree structure, which reflects file system tree of target
-folder, where each node represents:
+LOC-profile is a json tree structure, that reflects file system tree of target
+directory:
 
-- either directory with a sum of LOC counts of all child directories and files
-  inside
-- or LOC count for particular file
+- leaf nodes represent files, with LOC count in them
+- non-leaf nodes represent directories, with sum of LOC for each files inside
 
 ---
 

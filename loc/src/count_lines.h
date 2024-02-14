@@ -1,6 +1,7 @@
 #pragma once
 
+#include <filesystem>
 #include <string>
 
 // returns number of non-empty lines in text file
-u_int32_t count_lines(const std::string& file_name);
+auto count_lines(const std::filesystem::path& file_name) -> uint;
