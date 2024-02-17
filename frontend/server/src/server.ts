@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import path from 'node:path';
 
 import crypto from 'crypto';
 import express from 'express';
@@ -7,7 +8,7 @@ import morgan from 'morgan';
 import * as git from './utils/git';
 import * as loc from './utils/loc';
 
-const LISTEN_PORT = 4000;
+const LISTEN_PORT = 80;
 const CLONNED_REPOS_DIR = './clonned-repos';
 
 const app = express();
@@ -33,6 +34,8 @@ api.get('/loc-profile', async (request, response) => {
 });
 
 app.use('/api', api);
+
+app.use(express.static(path.join(__dirname, '../../client/build')));
 
 (async () => {
   // delete all failed clones of previous launch
