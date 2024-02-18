@@ -1,8 +1,18 @@
 {
   "name": "codemap",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "../docker/Dockerfile-base"
   },
+  "postCreateCommand": {
+    "installDocker":
+      // install docker inside dev container (for building/pushing prod
+      // images to docker hub)
+      "cd /tmp && curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh"
+  },
+  "mounts": [
+    // allow to access host docker engine from inside dev container
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [

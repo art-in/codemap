@@ -1,0 +1,11 @@
+FROM codemap-base
+
+# copy project sources
+COPY . /opt/project/
+WORKDIR /opt/project/
+
+# build project
+RUN /opt/project/scripts/build.sh
+
+# set entry (forwards args from cli)
+ENTRYPOINT /opt/project/scripts/start.sh

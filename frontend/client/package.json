@@ -50,5 +50,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4000"
+  "proxy_comment": "webpack dev server should proxy non-resource (e.g. api) requests to server",
+  "proxy": "http://localhost:80",
+  "homepage_comment": "built resources should be referenced with relative paths, so app can be served from path below root. e.g. index.html should reference js bundle with src='./static/js/main.js', instead of src='/static/js/main.js'. https://github.com/facebook/create-react-app/issues/165",
+  "homepage": "./"
 }
