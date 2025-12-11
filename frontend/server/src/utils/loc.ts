@@ -1,5 +1,5 @@
-import {run} from './shell-command';
+import exec from './exec';
 
 export async function getProfile(dir: string): Promise<string> {
-  return await run('../../loc/loc', [`--target=${dir}`]);
+  return await exec('../../loc/loc', [`--target=${dir}`]);
 }
